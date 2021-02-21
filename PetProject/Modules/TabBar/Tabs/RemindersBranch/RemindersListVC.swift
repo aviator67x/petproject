@@ -15,7 +15,7 @@ class RemindersListVC: UIViewController {
         
         setupTable()
         
-        self.tabBarItem = mytabBarItem
+//        self.tabBarItem = mytabBarItem
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                  target: self,
@@ -27,15 +27,15 @@ class RemindersListVC: UIViewController {
 
     }
 //    MARK: - Views
-    let image = UIImage(named: "assignment")
-    
-    private lazy var mytabBarItem: UITabBarItem = {
-        let item = UITabBarItem(title: "Reminders", image: image, tag: 0)
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
-            
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: .selected)
-     return item
-    }()
+//    let image = UIImage(named: "assignment")
+//    
+//    private lazy var mytabBarItem: UITabBarItem = {
+//        let item = UITabBarItem(title: "Reminders", image: image, tag: 0)
+//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+//            
+//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: .selected)
+//     return item
+//    }()
     
     private lazy var myTable: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)

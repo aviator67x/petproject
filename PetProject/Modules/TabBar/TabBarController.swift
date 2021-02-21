@@ -22,6 +22,18 @@ class TabBarController: UITabBarController {
         let thirdNavigationBar = UINavigationController(rootViewController: thirdVC)
         
         setViewControllers([remindersNavigationBar,secondNavigationBar, thirdNavigationBar], animated: true)
+        
+        self.tabBarItem = mytabBarItem
     }
+    let image = UIImage(named: "assignment")
+    
+    private lazy var mytabBarItem: UITabBarItem = {
+        let item = UITabBarItem(title: "Reminders", image: image, tag: 0)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+            
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: .selected)
+     return item
+    }()
 
 }
+
