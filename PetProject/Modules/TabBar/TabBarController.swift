@@ -36,5 +36,3 @@ class TabBarController: UITabBarController {
     }()
 
 }
-
-/// some comment
