@@ -11,7 +11,7 @@ class RemindersCreatingVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "RemindersCreatingVC"
+        self.title = "Create your reminder"
         view.backgroundColor = .white
         
         setupViews()
@@ -21,7 +21,7 @@ class RemindersCreatingVC: UIViewController {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .yellow
-        textField.placeholder = "Text"
+        textField.placeholder = "Name of reminder"
         textField.textColor = .red
         textField.delegate = self
         return textField
@@ -29,6 +29,7 @@ class RemindersCreatingVC: UIViewController {
     
     private lazy var messageTextView: UITextView = {
         let textView = UITextView()
+        textView.text = "Print your reminder here"
         textView.backgroundColor = .red
         return textView
     }()
@@ -37,10 +38,62 @@ class RemindersCreatingVC: UIViewController {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .green
-        textField.placeholder = "Text1"
+        textField.placeholder = "Chose the time of your reminder"
         textField.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         return textField
     }()
+    
+    private lazy var saveButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Save", for: .normal)
+        button.tintColor = .red
+        button.layer.cornerRadius = 10
+        button.backgroundColor = .blue
+        button.addTarget(self, action: #selector(tapButton), for: .allEvents)
+        return button
+    }()
+    
+    struct Reminder {
+        var name: String
+        var text: String
+        var time: String
+        let id: String
+        
+        init(with name: String,
+             text: String,
+             time: String) {
+            self.name = name
+            self.text = text
+            self.time = time
+            self.id = UUID().uuidString
+        }
+    }
+    
+    @objc func tapButton() {
+        let userDefaults = UserDefaults.standard
+        guard let name = titleTextField.text,
+              let time = pickerTextField.text else { return }
+        
+        let reminder = Reminder(with: name,
+                                text: messageTextView.text,
+                                time: time)
+        
+        if var existingReminders = userDefaults.array(forKey: "Show reminder") as? [Reminder] {
+            existingReminders.append(reminder)
+            userDefaults.setValue(existingReminders, forKey: "Show reminder")
+        } else {
+            var reminderArray:[Reminder] = []
+            reminderArray.append(reminder)
+            userDefaults.setValue(reminderArray, forKey: "Show reminder")
+        }
+        
+        
+        let alertForButton = UIAlertController(title: "You have successfully created a reminder", message: "To return to previous menu tap the button Done", preferredStyle: .alert)
+        alertForButton.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        present(alertForButton, animated: true, completion: nil)
+    }
     
 //    MARK: - Setup Views
     private func setupViews() {
@@ -56,6 +109,11 @@ class RemindersCreatingVC: UIViewController {
         view.addSubview(pickerTextField) {
             $0.left.right.equalToSuperview().inset(30)
             $0.top.equalTo(messageTextView.snp.bottom).offset(40)
+        }
+        view.addSubview(saveButton) {
+            $0.left.right.equalToSuperview().inset(50)
+            $0.height.equalTo(60)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(40)
         }
     }
     

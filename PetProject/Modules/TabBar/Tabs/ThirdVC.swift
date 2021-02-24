@@ -14,12 +14,12 @@ class ThirdVC: UIViewController {
         view.backgroundColor = .blue
         self.navigationItem.title = "ThirdVC"
         
-        let image = UIImage(named: "person")
-        
-        var tabBarItem = UITabBarItem()
-        tabBarItem = UITabBarItem(title: "Profile", image: image, tag: 2)
-        setTabBarItemTextColor() 
-        self.tabBarItem = tabBarItem
+//        let image = UIImage(named: "person")
+//
+//        var tabBarItem = UITabBarItem()
+//        tabBarItem = UITabBarItem(title: "Profile", image: image, tag: 2)
+//        setTabBarItemTextColor()
+//        self.tabBarItem = tabBarItem
         
         
         

@@ -15,27 +15,18 @@ class RemindersListVC: UIViewController {
         
         setupTable()
         
-//        self.tabBarItem = mytabBarItem
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                  target: self,
                                                                  action: #selector(showRemindersView(param:)))
-//        let plusImage = UIImage(named: "plusImage")
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: plusImage,
-//                                                                 style: UIBarButtonItem.Style.plain,
-//                                                                 target: self, action: #selector(showRemindersView(param:)))
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // fetch reminder and then update table view
+    }
 //    MARK: - Views
-//    let image = UIImage(named: "assignment")
-//    
-//    private lazy var mytabBarItem: UITabBarItem = {
-//        let item = UITabBarItem(title: "Reminders", image: image, tag: 0)
-//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
-//            
-//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.red], for: .selected)
-//     return item
-//    }()
     
     private lazy var myTable: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)

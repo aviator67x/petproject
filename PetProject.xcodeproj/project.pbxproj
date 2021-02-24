@@ -56,6 +56,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2967CA9725E6728A00F2C7FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2967CA9825E6728E00F2C7FB /* Reminders */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2967CA9825E6728E00F2C7FB /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
 		2970ED4725D52391002D6999 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +113,7 @@
 			children = (
 				2974048825D183A200CC3E0D /* APP */,
 				2974048925D183AD00CC3E0D /* Modules */,
+				2967CA9725E6728A00F2C7FB /* Models */,
 				2974048A25D183BA00CC3E0D /* Extensions */,
 				2974048B25D183E100CC3E0D /* Resourses */,
 				2974047625D182EB00CC3E0D /* Main.storyboard */,
