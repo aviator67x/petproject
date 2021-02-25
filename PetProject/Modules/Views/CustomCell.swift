@@ -33,6 +33,10 @@ final class CustomCell: UITableViewCell {
     }()
     private lazy var reminderLabel: UILabel = {
         let label = UILabel()
+//        if let data = UserDefaults.standard.value(forKey: "Show reminder") as? Data,
+//           let reminderText = try? JSONDecoder().decode(remi, from: <#T##Data#>){
+            
+//        }
         label.text = "Text for label"
         label.font = UIFont.systemFont(ofSize: 20)
         return label

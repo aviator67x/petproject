@@ -18,6 +18,7 @@
 		2974049725D1977F00CC3E0D /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974049625D1977F00CC3E0D /* SecondVC.swift */; };
 		2974049A25D1979A00CC3E0D /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974049925D1979A00CC3E0D /* ThirdVC.swift */; };
 		297496B925D52EC6009F80CF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297496B825D52EC6009F80CF /* TabBarController.swift */; };
+		2984342E25E837D10028D846 /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2984342D25E837D10028D846 /* Reminders.swift */; };
 		2985D14225DA810E006BB037 /* TextField+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2985D14125DA810E006BB037 /* TextField+DatePicker.swift */; };
 		29EBEA2A25D68ACA001864F2 /* RemindersCreatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EBEA2925D68ACA001864F2 /* RemindersCreatingVC.swift */; };
 		49B4BDEC4BEC0BAC795165BC /* Pods_PetProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E5C5CE1FA903DCF979249A /* Pods_PetProject.framework */; };
@@ -37,6 +38,7 @@
 		2974049625D1977F00CC3E0D /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		2974049925D1979A00CC3E0D /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
 		297496B825D52EC6009F80CF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2984342D25E837D10028D846 /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
 		2985D14125DA810E006BB037 /* TextField+DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+DatePicker.swift"; sourceTree = "<group>"; };
 		29EBEA2925D68ACA001864F2 /* RemindersCreatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCreatingVC.swift; sourceTree = "<group>"; };
 		2A42B44789A7E5C11661BE05 /* Pods-PetProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetProject.release.xcconfig"; path = "Target Support Files/Pods-PetProject/Pods-PetProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		2967CA9825E6728E00F2C7FB /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				2984342D25E837D10028D846 /* Reminders.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2984342E25E837D10028D846 /* Reminders.swift in Sources */,
 				2974049A25D1979A00CC3E0D /* ThirdVC.swift in Sources */,
 				2985D14225DA810E006BB037 /* TextField+DatePicker.swift in Sources */,
 				297496B925D52EC6009F80CF /* TabBarController.swift in Sources */,

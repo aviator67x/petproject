@@ -15,6 +15,7 @@ class RemindersCreatingVC: UIViewController {
         view.backgroundColor = .white
         
         setupViews()
+    
     }
 //    MARK: - Views
     private lazy var titleTextField: UITextField = {
@@ -53,7 +54,7 @@ class RemindersCreatingVC: UIViewController {
         return button
     }()
     
-    struct Reminder {
+    struct Reminder: Codable {
         var name: String
         var text: String
         var time: String
@@ -69,6 +70,10 @@ class RemindersCreatingVC: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        messageTextView.resignFirstResponder()
+    }
+    
     @objc func tapButton() {
         let userDefaults = UserDefaults.standard
         guard let name = titleTextField.text,
@@ -78,14 +83,19 @@ class RemindersCreatingVC: UIViewController {
                                 text: messageTextView.text,
                                 time: time)
         
-        if var existingReminders = userDefaults.array(forKey: "Show reminder") as? [Reminder] {
-            existingReminders.append(reminder)
+        if let data = try? JSONEncoder().encode(reminder) {
+            if var existingReminders = UserDefaults.standard.value(forKey: "Show reminder") as? Data {
+            existingReminders.append(data)
             userDefaults.setValue(existingReminders, forKey: "Show reminder")
         } else {
             var reminderArray:[Reminder] = []
-            reminderArray.append(reminder)
-            userDefaults.setValue(reminderArray, forKey: "Show reminder")
+            if var reminderArrayData = try? JSONEncoder().encode(reminderArray) {
+            reminderArrayData.append(data)
+            userDefaults.setValue(reminderArrayData, forKey: "Show reminder")
+                
+            }
         }
+    }
         
         
         let alertForButton = UIAlertController(title: "You have successfully created a reminder", message: "To return to previous menu tap the button Done", preferredStyle: .alert)
@@ -121,8 +131,9 @@ class RemindersCreatingVC: UIViewController {
     @objc func tapDone() {
           if let datePicker = self.pickerTextField.inputView as? UIDatePicker { 
               let dateformatter = DateFormatter()
-              dateformatter.dateStyle = .medium
-              self.pickerTextField.text = dateformatter.string(from: datePicker.date)
+            dateformatter.dateStyle = .medium
+            dateformatter.timeStyle = .medium
+            self.pickerTextField.text = dateformatter.string(from: datePicker.date)
           }
           self.pickerTextField.resignFirstResponder()
       }
