@@ -24,7 +24,11 @@ class RemindersListVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // fetch reminder and then update table view
+        if let data = UserDefaults.standard.value(forKey: "Show reminder") as? Data,
+           let reminders = try? JSONDecoder().decode([Reminder].self, from: data) {
+            print("\(reminders.first?.name)")
+            print("\(reminders.first?.name ?? "no value")")
+        }
     }
 //    MARK: - Views
     
@@ -72,6 +76,10 @@ extension RemindersListVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ReminderCell
+//        if let decodedReminder = UserDefaults.standard.value(forKey: "Show reminder”) as? Data {
+//           if let reminder = try? JSONDecoder().decode(UserDefaults.self, from: decodedReminder)
+
+//        cell.setup(with: <#T##ReminderCellViewModel#>)
         return cell
     }
     

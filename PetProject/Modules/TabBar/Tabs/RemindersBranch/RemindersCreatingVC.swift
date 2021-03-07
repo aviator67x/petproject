@@ -8,16 +8,16 @@
 import UIKit
 
 class RemindersCreatingVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Create your reminder"
         view.backgroundColor = .white
         
         setupViews()
-    
+        
     }
-//    MARK: - Views
+    //    MARK: - Views
     private lazy var titleTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         textField.borderStyle = .roundedRect
@@ -50,11 +50,11 @@ class RemindersCreatingVC: UIViewController {
         button.tintColor = .red
         button.layer.cornerRadius = 10
         button.backgroundColor = .blue
-        button.addTarget(self, action: #selector(tapButton), for: .allEvents)
+        button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
         return button
     }()
     
-   
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         messageTextView.resignFirstResponder()
@@ -74,27 +74,27 @@ class RemindersCreatingVC: UIViewController {
                 existingReminders.append(data)
                 userDefaults.setValue(existingReminders, forKey: "Show reminder")
             }
-        } else {var reminderArray:[Reminder] = []
-            if var reminderArrayData = try? JSONEncoder().encode(reminderArray),
-               let data = try? JSONEncoder().encode(reminder) {
-            reminderArrayData.append(data)
-            userDefaults.setValue(reminderArrayData, forKey: "Show reminder")
+        } else {
+            var reminderArray:[Reminder] = []
+            reminderArray.append(reminder)
+            if var reminderArrayData = try? JSONEncoder().encode(reminderArray) {
+                userDefaults.setValue(reminderArrayData, forKey: "Show reminder")
             }
             
         }
         
-//        if let data = try? JSONEncoder().encode(reminder) {
-//            if var existingReminders = UserDefaults.standard.value(forKey: "Show reminder") as? Data {
-//            existingReminders.append(data)
-//            userDefaults.setValue(existingReminders, forKey: "Show reminder")
-//        } else {
-//            var reminderArray:[Reminder] = []
-//            if var reminderArrayData = try? JSONEncoder().encode(reminderArray) {
-//            reminderArrayData.append(data)
-//            userDefaults.setValue(reminderArrayData, forKey: "Show reminder")
-//            }
-//        }
-//    }
+        //        if let data = try? JSONEncoder().encode(reminder) {
+        //            if var existingReminders = UserDefaults.standard.value(forKey: "Show reminder") as? Data {
+        //            existingReminders.append(data)
+        //            userDefaults.setValue(existingReminders, forKey: "Show reminder")
+        //        } else {
+        //            var reminderArray:[Reminder] = []
+        //            if var reminderArrayData = try? JSONEncoder().encode(reminderArray) {
+        //            reminderArrayData.append(data)
+        //            userDefaults.setValue(reminderArrayData, forKey: "Show reminder")
+        //            }
+        //        }
+        //    }
         
         
         let alertForButton = UIAlertController(title: "You have successfully created a reminder", message: "To return to previous menu tap the button Done", preferredStyle: .alert)
@@ -104,7 +104,7 @@ class RemindersCreatingVC: UIViewController {
         present(alertForButton, animated: true, completion: nil)
     }
     
-//    MARK: - Setup Views
+    //    MARK: - Setup Views
     private func setupViews() {
         view.addSubview(titleTextField) {
             $0.left.right.equalToSuperview().inset(30)
@@ -126,16 +126,16 @@ class RemindersCreatingVC: UIViewController {
         }
     }
     
-//    MARK: - Selector
+    //    MARK: - Selector
     @objc func tapDone() {
-          if let datePicker = self.pickerTextField.inputView as? UIDatePicker { 
-              let dateformatter = DateFormatter()
+        if let datePicker = self.pickerTextField.inputView as? UIDatePicker {
+            let dateformatter = DateFormatter()
             dateformatter.dateStyle = .medium
             dateformatter.timeStyle = .medium
             self.pickerTextField.text = dateformatter.string(from: datePicker.date)
-          }
-          self.pickerTextField.resignFirstResponder()
-      }
+        }
+        self.pickerTextField.resignFirstResponder()
+    }
 }
 
 //    MARK: - Extensions
@@ -144,6 +144,6 @@ extension RemindersCreatingVC: UITextFieldDelegate {
         if textField == titleTextField {
             titleTextField.resignFirstResponder()
         }
-       return true
+        return true
     }
 }

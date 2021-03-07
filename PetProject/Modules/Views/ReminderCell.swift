@@ -18,7 +18,13 @@ struct ReminderCellViewModel: ReminderCellVM {
     var name: String
     var text: String
     var time: String
-    var id: String 
+    var id: String
+    init(reminder: Reminder) {
+        name = reminder.name
+        text = reminder.text
+        time = reminder.time
+        id = reminder.id
+    }
 }
 
 final class ReminderCell: UITableViewCell {
@@ -35,23 +41,16 @@ final class ReminderCell: UITableViewCell {
 //    MARK: - Views
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Reminders"
         return label
     }()
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "Date"
         label.textAlignment = .left
 //        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     private lazy var reminderLabel: UILabel = {
         let label = UILabel()
-//        if let data = UserDefaults.standard.value(forKey: "Show reminder") as? Data,
-//           let reminderText = try? JSONDecoder().decode(remi, from: <#T##Data#>){
-            
-//        }
-        label.text = "Text for label"
         label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
@@ -77,5 +76,12 @@ final class ReminderCell: UITableViewCell {
             $0.top.equalTo(titleLabel.snp.bottom).offset(30)
             $0.bottom.equalToSuperview()
         }
+    }
+}
+extension ReminderCell {
+    func setup(with viewModel: ReminderCellViewModel) {
+        titleLabel.text = "\(viewModel.name)"
+        timeLabel.text = "\(viewModel.time)"
+        reminderLabel.text = "\(viewModel.text)"
     }
 }
