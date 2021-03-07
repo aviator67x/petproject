@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2967111825D40EB00012F637 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2967111725D40EB00012F637 /* CustomCell.swift */; };
+		2967111825D40EB00012F637 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2967111725D40EB00012F637 /* ReminderCell.swift */; };
 		2974047125D182EB00CC3E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974047025D182EB00CC3E0D /* AppDelegate.swift */; };
 		2974047325D182EB00CC3E0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974047225D182EB00CC3E0D /* SceneDelegate.swift */; };
 		2974047525D182EB00CC3E0D /* RemindersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974047425D182EB00CC3E0D /* RemindersListVC.swift */; };
@@ -18,14 +18,14 @@
 		2974049725D1977F00CC3E0D /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974049625D1977F00CC3E0D /* SecondVC.swift */; };
 		2974049A25D1979A00CC3E0D /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2974049925D1979A00CC3E0D /* ThirdVC.swift */; };
 		297496B925D52EC6009F80CF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297496B825D52EC6009F80CF /* TabBarController.swift */; };
-		2984342E25E837D10028D846 /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2984342D25E837D10028D846 /* Reminders.swift */; };
+		2984342E25E837D10028D846 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2984342D25E837D10028D846 /* Reminder.swift */; };
 		2985D14225DA810E006BB037 /* TextField+DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2985D14125DA810E006BB037 /* TextField+DatePicker.swift */; };
 		29EBEA2A25D68ACA001864F2 /* RemindersCreatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EBEA2925D68ACA001864F2 /* RemindersCreatingVC.swift */; };
 		49B4BDEC4BEC0BAC795165BC /* Pods_PetProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E5C5CE1FA903DCF979249A /* Pods_PetProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2967111725D40EB00012F637 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		2967111725D40EB00012F637 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		2974046D25D182EB00CC3E0D /* PetProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2974047025D182EB00CC3E0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2974047225D182EB00CC3E0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 		2974049625D1977F00CC3E0D /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
 		2974049925D1979A00CC3E0D /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
 		297496B825D52EC6009F80CF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		2984342D25E837D10028D846 /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		2984342D25E837D10028D846 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		2985D14125DA810E006BB037 /* TextField+DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+DatePicker.swift"; sourceTree = "<group>"; };
 		29EBEA2925D68ACA001864F2 /* RemindersCreatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCreatingVC.swift; sourceTree = "<group>"; };
 		2A42B44789A7E5C11661BE05 /* Pods-PetProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetProject.release.xcconfig"; path = "Target Support Files/Pods-PetProject/Pods-PetProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		2967CA9825E6728E00F2C7FB /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				2984342D25E837D10028D846 /* Reminders.swift */,
+				2984342D25E837D10028D846 /* Reminder.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 		2974048C25D1851700CC3E0D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2967111725D40EB00012F637 /* CustomCell.swift */,
+				2967111725D40EB00012F637 /* ReminderCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,7 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2984342E25E837D10028D846 /* Reminders.swift in Sources */,
+				2984342E25E837D10028D846 /* Reminder.swift in Sources */,
 				2974049A25D1979A00CC3E0D /* ThirdVC.swift in Sources */,
 				2985D14225DA810E006BB037 /* TextField+DatePicker.swift in Sources */,
 				297496B925D52EC6009F80CF /* TabBarController.swift in Sources */,
@@ -326,7 +326,7 @@
 				2974049725D1977F00CC3E0D /* SecondVC.swift in Sources */,
 				2974047125D182EB00CC3E0D /* AppDelegate.swift in Sources */,
 				2974047325D182EB00CC3E0D /* SceneDelegate.swift in Sources */,
-				2967111825D40EB00012F637 /* CustomCell.swift in Sources */,
+				2967111825D40EB00012F637 /* ReminderCell.swift in Sources */,
 				2974049025D185BE00CC3E0D /* UIView + SnapKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

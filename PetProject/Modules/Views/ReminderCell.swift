@@ -1,5 +1,5 @@
 //
-//  CustomCell.swift
+//  ReminderCell.swift
 //  PetProject
 //
 //  Created by Georhii Kasilov on 10.02.2021.
@@ -7,7 +7,21 @@
 
 import UIKit
 
-final class CustomCell: UITableViewCell {
+protocol ReminderCellVM {
+    var name: String {get}
+    var text: String {get}
+    var time: String {get}
+    var id: String {get}
+}
+
+struct ReminderCellViewModel: ReminderCellVM {
+    var name: String
+    var text: String
+    var time: String
+    var id: String 
+}
+
+final class ReminderCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

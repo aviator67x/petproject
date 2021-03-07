@@ -33,7 +33,7 @@ class RemindersListVC: UIViewController {
 //        table.delegate = self
         table.dataSource = self
         
-        table.register(CustomCell.self, forCellReuseIdentifier: "customCell")
+        table.register(ReminderCell.self, forCellReuseIdentifier: "customCell")
         table.estimatedRowHeight = 150
         table.rowHeight = UITableView.automaticDimension
         table.separatorStyle = .singleLine
@@ -44,6 +44,7 @@ class RemindersListVC: UIViewController {
 //    MARK: - Methods
     @objc private func showRemindersView(param: UIBarButtonItem) {
         let creatingRemindersVC = RemindersCreatingVC()
+        creatingRemindersVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(creatingRemindersVC, animated: true)
     }
 
@@ -70,7 +71,7 @@ extension RemindersListVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! ReminderCell
         return cell
     }
     
