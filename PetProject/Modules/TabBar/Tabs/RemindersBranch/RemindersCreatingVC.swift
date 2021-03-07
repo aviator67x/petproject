@@ -69,19 +69,32 @@ class RemindersCreatingVC: UIViewController {
                                 text: messageTextView.text,
                                 time: time)
         
-        if let data = try? JSONEncoder().encode(reminder) {
-            if var existingReminders = UserDefaults.standard.value(forKey: "Show reminder") as? Data {
-            existingReminders.append(data)
-            userDefaults.setValue(existingReminders, forKey: "Show reminder")
-        } else {
-            var reminderArray:[Reminder] = []
-            if var reminderArrayData = try? JSONEncoder().encode(reminderArray) {
+        if var existingReminders = UserDefaults.standard.value(forKey: "Show reminder") as? Data {
+            if let data = try? JSONEncoder().encode(reminder) {
+                existingReminders.append(data)
+                userDefaults.setValue(existingReminders, forKey: "Show reminder")
+            }
+        } else {var reminderArray:[Reminder] = []
+            if var reminderArrayData = try? JSONEncoder().encode(reminderArray),
+               let data = try? JSONEncoder().encode(reminder) {
             reminderArrayData.append(data)
             userDefaults.setValue(reminderArrayData, forKey: "Show reminder")
-                
             }
+            
         }
-    }
+        
+//        if let data = try? JSONEncoder().encode(reminder) {
+//            if var existingReminders = UserDefaults.standard.value(forKey: "Show reminder") as? Data {
+//            existingReminders.append(data)
+//            userDefaults.setValue(existingReminders, forKey: "Show reminder")
+//        } else {
+//            var reminderArray:[Reminder] = []
+//            if var reminderArrayData = try? JSONEncoder().encode(reminderArray) {
+//            reminderArrayData.append(data)
+//            userDefaults.setValue(reminderArrayData, forKey: "Show reminder")
+//            }
+//        }
+//    }
         
         
         let alertForButton = UIAlertController(title: "You have successfully created a reminder", message: "To return to previous menu tap the button Done", preferredStyle: .alert)
